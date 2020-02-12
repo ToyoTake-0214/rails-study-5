@@ -36,9 +36,9 @@ gem 'redis-rails'
 gem 'seed-fu'
 
 # Pagination
+gem 'bootstrap4-kaminari-views'
 gem 'kaminari'
 gem 'kaminari-i18n'
-gem 'bootstrap4-kaminari-views'
 
 # Breadcrumbs
 gem 'gretel'
@@ -101,10 +101,10 @@ group :development, :test do
   gem 'coffeelint'
   gem 'rails_best_practices'
   gem 'reek'
-  gem 'rubocop'
-  gem 'rubocop-rails'
-  gem 'rubocop-checkstyle_formatter'
   gem 'rspec_junit_formatter'
+  gem 'rubocop'
+  gem 'rubocop-checkstyle_formatter'
+  gem 'rubocop-rails'
   gem 'scss_lint', require: false
   gem 'slim_lint'
 
@@ -139,7 +139,7 @@ group :test do
   gem 'capybara'
   gem 'faker'
   gem 'fuubar'
-  gem 'webdrivers'
   gem 'shoulda-matchers'
   gem 'timecop'
+  gem 'webdrivers'
 end
