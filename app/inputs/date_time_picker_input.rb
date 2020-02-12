@@ -1,5 +1,5 @@
 class DateTimePickerInput < SimpleForm::Inputs::Base
-  def input(wrapper_options)
+  def input(_wrapper_options)
     template.content_tag(:div, class: 'input-group date js-datetimepicker') do
       template.concat @builder.text_field(attribute_name, input_html_options)
       template.concat span_table
@@ -11,7 +11,6 @@ class DateTimePickerInput < SimpleForm::Inputs::Base
     classes << :'form-control'
     super.merge(class: classes.uniq)
   end
-
 
   def span_table
     template.content_tag(:span, class: 'input-group-addon') do

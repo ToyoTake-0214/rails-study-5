@@ -90,7 +90,7 @@ class Admin::Articles::ArticleBlocksController < ApplicationController
     elsif params.key?(:embed)
       embed_params
     else
-      raise ActionController::ParameterMissing.new(:blockable)
+      raise ActionController::ParameterMissing, :blockable
     end
   end
 

@@ -6,6 +6,8 @@ AllCops:
     - "db/**/*"
     - "bin/**/*"
     - "spec/**/*"
+    - "config/**/*"
+    - "app/validators/attachment_validator.rb"
   DisplayCopNames: true
 
 Rails:
