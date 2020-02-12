@@ -101,7 +101,10 @@ group :development, :test do
   gem 'coffeelint'
   gem 'rails_best_practices'
   gem 'reek'
-  gem 'rubocop', '~> 0.72.0'
+  gem 'rubocop'
+  gem 'rubocop-rails'
+  gem 'rubocop-checkstyle_formatter'
+  gem 'rspec_junit_formatter'
   gem 'scss_lint', require: false
   gem 'slim_lint'
 
@@ -139,5 +142,4 @@ group :test do
   gem 'webdrivers'
   gem 'shoulda-matchers'
   gem 'timecop'
-  gem 'rspec_junit_formatter'
 end
