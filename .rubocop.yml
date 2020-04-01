@@ -5,6 +5,7 @@ AllCops:
     - "vendor/**/*"
     - "db/**/*"
     - "bin/**/*"
+    - "lib/**/*"
     - "spec/**/*"
     - "config/**/*"
     - "app/validators/attachment_validator.rb"
