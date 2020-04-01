@@ -15,6 +15,8 @@ class Admin::InvitationsController < ApplicationController
     @invitation = Invitation.new
   end
 
+  def show; end
+
   def create
     authorize(Invitation)
 
