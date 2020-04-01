@@ -39,7 +39,7 @@ class Article < ApplicationRecord
 
   has_one_attached :eye_catch
 
-  enum state: %i[draft published]
+  enum state: { draft: 0, published: 1 }
 
   validates :slug, slug_format: true, uniqueness: true, length: { maximum: 255 }, allow_blank: true
   validates :title, presence: true, uniqueness: true, length: { maximum: 255 }
@@ -47,10 +47,10 @@ class Article < ApplicationRecord
   validates :state, presence: true
   validates :eye_catch, attachment: { purge: true, content_type: %r{\Aimage/(png|jpeg)\Z}, maximum: 10_485_760 }
 
-  with_options if: :published? do |v|
-    v.validates :slug, slug_format: true, presence: true, length: { maximum: 255 }
-    v.validates :published_at, presence: true
-    v.validates :category_id, presence: true
+  with_options if: :published? do
+    validates :slug, slug_format: true, presence: true, length: { maximum: 255 }
+    validates :published_at, presence: true
+    validates :category_id, presence: true
   end
 
   delegate :name, to: :category, prefix: true, allow_nil: true
@@ -100,10 +100,10 @@ class Article < ApplicationRecord
   end
 
   def next_article
-    @next_article ||= Article.viewable.order(published_at: :asc).where('published_at > ?', published_at).first
+    @next_article ||= Article.viewable.order(published_at: :asc).find_by('published_at > ?', published_at)
   end
 
   def prev_article
-    @prev_article ||= Article.viewable.order(published_at: :desc).where('published_at < ?', published_at).first
+    @prev_article ||= Article.viewable.order(published_at: :desc).find_by('published_at < ?', published_at)
   end
 end

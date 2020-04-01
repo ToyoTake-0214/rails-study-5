@@ -5,6 +5,7 @@ AllCops:
     - "vendor/**/*"
     - "db/**/*"
     - "bin/**/*"
+    - "lib/**/*"
     - "spec/**/*"
     - "config/**/*"
     - "app/validators/attachment_validator.rb"
@@ -14,10 +15,6 @@ AllCops:
 
 Rails:
   Enabled: true
-
-Rails/Output:
-  Exclude:
-    - "config/unicorn/**/*"
 
 Metrics/AbcSize:
   Max: 30
@@ -56,4 +53,7 @@ Style/IfUnlessModifier:
   Enabled: false
 
 Style/WhileUntilModifier:
+  Enabled: false
+
+Rails/HasManyOrHasOneDependent:
   Enabled: false

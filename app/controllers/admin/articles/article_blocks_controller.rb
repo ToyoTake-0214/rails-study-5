@@ -41,7 +41,7 @@ class Admin::Articles::ArticleBlocksController < ApplicationController
         head :ok
       end
     else
-      render action: :edit, status: 400
+      render action: :edit, status: :bad_request
     end
   end
 
