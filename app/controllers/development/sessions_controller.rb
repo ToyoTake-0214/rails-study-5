@@ -1,4 +1,4 @@
-class Development::SessionsController < ActionController::Base
+class Development::SessionsController < ApplicationController
   def login_as
     user = User.find(params[:user_id])
     auto_login(user)

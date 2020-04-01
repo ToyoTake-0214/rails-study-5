@@ -15,7 +15,7 @@ class Medium < ApplicationRecord
 
   has_one_attached :attachment
 
-  enum media_type: %i[image]
+  enum media_type: { image: 0 }
 
   validates :attachment, attachment: { purge: true, content_type: %r{\Aimage/(png|jpeg)\Z}, maximum: 10_485_760 }, if: :image?
 end
