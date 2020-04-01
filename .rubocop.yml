@@ -15,10 +15,6 @@ AllCops:
 Rails:
   Enabled: true
 
-Rails/Output:
-  Exclude:
-    - "config/unicorn/**/*"
-
 Metrics/AbcSize:
   Max: 30
 
