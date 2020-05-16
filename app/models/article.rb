@@ -61,24 +61,6 @@ class Article < ApplicationRecord
 
   scope :viewable, -> { published.where('published_at < ?', Time.current) }
   scope :new_arrivals, -> { viewable.order(published_at: :desc) }
-  scope :by_category, ->(category_id) { where(category_id: category_id) }
-  scope :title_contain, ->(word) { where('title LIKE ?', "%#{word}%") }
-
-  class << self
-    def search(search_articles_form)
-      relation = Article.distinct
-
-      if search_articles_form.category_id?
-        relation = relation.by_category(search_articles_form.category_id)
-      end
-
-      search_articles_form.title_words.each do |word|
-        relation = relation.title_contain(word)
-      end
-
-      relation
-    end
-  end
 
   def build_body(controller)
     result = ''

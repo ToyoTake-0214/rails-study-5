@@ -7,7 +7,7 @@ class Admin::ArticlesController < ApplicationController
     authorize(Article)
 
     @search_articles_form = SearchArticlesForm.new(search_params)
-    @articles = Article.search(@search_articles_form).order(id: :desc).page(params[:page]).per(25)
+    @articles = @search_articles_form.search.order(id: :desc).page(params[:page]).per(25)
   end
 
   def new

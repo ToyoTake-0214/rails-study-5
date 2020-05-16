@@ -1,21 +1,23 @@
 class SearchArticlesForm
-  include Virtus.model
+  include ActiveModel::Model
+  include ActiveModel::Attributes
 
-  extend ActiveModel::Naming
-  include ActiveModel::Conversion
+  attribute :category_id, :integer
+  attribute :title, :string
 
-  attribute :category_id, Integer
-  attribute :title, String
+  def search
+    articles = Article.all
 
-  def category_id?
-    category_id.present?
+    articles.where!(category_id: category_id) if category_id.present?
+    title_words.each do |word|
+      articles.where!('title LIKE ?', "%#{word}%")
+    end
+    articles
   end
 
-  def title?
-    title.present?
-  end
+  private
 
   def title_words
-    title? ? title.split(nil) : []
+    title.present? ? title.split(nil) : []
   end
 end
