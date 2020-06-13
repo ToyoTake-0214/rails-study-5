@@ -6,13 +6,13 @@ class SearchArticlesForm
   attribute :title, :string
 
   def search
-    articles = Article.all
+    relation = Article.distinct
 
-    articles.where!(category_id: category_id) if category_id.present?
+    relation = relation.by_category(category_id) if category_id.present?
     title_words.each do |word|
-      articles.where!('title LIKE ?', "%#{word}%")
+      relation = relation.title_contain(word)
     end
-    articles
+    relation
   end
 
   private
