@@ -12,17 +12,17 @@
 
 ActiveRecord::Schema.define(version: 2018_01_08_022806) do
 
-  create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC", force: :cascade do |t|
+  create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
-    t.bigint "record_id", null: false
-    t.bigint "blob_id", null: false
+    t.integer "record_id", null: false
+    t.integer "blob_id", null: false
     t.datetime "created_at", null: false
     t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
     t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
   end
 
-  create_table "active_storage_blobs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC", force: :cascade do |t|
+  create_table "active_storage_blobs", force: :cascade do |t|
     t.string "key", null: false
     t.string "filename", null: false
     t.string "content_type"
@@ -33,10 +33,10 @@ ActiveRecord::Schema.define(version: 2018_01_08_022806) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "article_blocks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC", force: :cascade do |t|
-    t.bigint "article_id"
+  create_table "article_blocks", force: :cascade do |t|
+    t.integer "article_id"
     t.string "blockable_type"
-    t.bigint "blockable_id"
+    t.integer "blockable_id"
     t.integer "level", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -45,18 +45,18 @@ ActiveRecord::Schema.define(version: 2018_01_08_022806) do
     t.index ["level"], name: "index_article_blocks_on_level"
   end
 
-  create_table "article_tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC", force: :cascade do |t|
-    t.bigint "article_id"
-    t.bigint "tag_id"
+  create_table "article_tags", force: :cascade do |t|
+    t.integer "article_id"
+    t.integer "tag_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["article_id"], name: "index_article_tags_on_article_id"
     t.index ["tag_id"], name: "index_article_tags_on_tag_id"
   end
 
-  create_table "articles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC", force: :cascade do |t|
-    t.bigint "category_id"
-    t.bigint "author_id"
+  create_table "articles", force: :cascade do |t|
+    t.integer "category_id"
+    t.integer "author_id"
     t.string "uuid"
     t.string "slug"
     t.string "title"
@@ -75,18 +75,18 @@ ActiveRecord::Schema.define(version: 2018_01_08_022806) do
     t.index ["uuid"], name: "index_articles_on_uuid"
   end
 
-  create_table "embeds", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC", force: :cascade do |t|
+  create_table "embeds", force: :cascade do |t|
     t.integer "embed_type", default: 0, null: false
     t.string "identifier"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "invitations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC", force: :cascade do |t|
+  create_table "invitations", force: :cascade do |t|
     t.string "uuid", null: false
     t.string "name", null: false
     t.integer "role", default: 0
-    t.bigint "user_id"
+    t.integer "user_id"
     t.datetime "expires_at", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -96,20 +96,20 @@ ActiveRecord::Schema.define(version: 2018_01_08_022806) do
     t.index ["uuid"], name: "index_invitations_on_uuid", unique: true
   end
 
-  create_table "media", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC", force: :cascade do |t|
+  create_table "media", force: :cascade do |t|
     t.integer "media_type", default: 0, null: false
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "sentences", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC", force: :cascade do |t|
+  create_table "sentences", force: :cascade do |t|
     t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "sites", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC", force: :cascade do |t|
+  create_table "sites", force: :cascade do |t|
     t.string "name"
     t.string "subtitle"
     t.text "description"
@@ -117,7 +117,7 @@ ActiveRecord::Schema.define(version: 2018_01_08_022806) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "taxonomies", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC", force: :cascade do |t|
+  create_table "taxonomies", force: :cascade do |t|
     t.string "type"
     t.string "name"
     t.string "slug"
@@ -128,7 +128,7 @@ ActiveRecord::Schema.define(version: 2018_01_08_022806) do
     t.index ["type"], name: "index_taxonomies_on_type"
   end
 
-  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC", force: :cascade do |t|
+  create_table "users", force: :cascade do |t|
     t.string "name", null: false
     t.string "crypted_password"
     t.integer "role", default: 0

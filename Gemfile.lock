@@ -274,6 +274,7 @@ GEM
       letter_opener (~> 1.0)
       railties (>= 3.2)
     libv8 (3.16.14.19)
+    libv8 (3.16.14.19-x86_64-darwin-18)
     listen (3.2.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
@@ -300,7 +301,6 @@ GEM
     multipart-post (2.1.1)
     mustermann (1.1.1)
       ruby2_keywords (~> 0.0.1)
-    mysql2 (0.5.3)
     net-scp (2.0.0)
       net-ssh (>= 2.6.5, < 6.0.0)
     net-ssh (5.2.0)
@@ -588,6 +588,7 @@ GEM
 
 PLATFORMS
   ruby
+  x86_64-darwin-18
 
 DEPENDENCIES
   active_decorator
@@ -629,7 +630,6 @@ DEPENDENCIES
   meta-tags
   migration_comments
   mini_magick
-  mysql2
   paranoia
   paranoia_uniqueness_validator
   pry
@@ -677,4 +677,4 @@ RUBY VERSION
    ruby 2.6.5p114
 
 BUNDLED WITH
-   2.0.2
+   2.2.0
