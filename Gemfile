@@ -29,7 +29,7 @@ gem 'config'
 gem 'dotenv-rails', require: 'dotenv/rails-now'
 
 # Database
-gem 'mysql2'
+gem 'sqlite3'
 gem 'redis-rails'
 
 # Seeds

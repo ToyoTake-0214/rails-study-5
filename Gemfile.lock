@@ -300,7 +300,6 @@ GEM
     multipart-post (2.1.1)
     mustermann (1.1.1)
       ruby2_keywords (~> 0.0.1)
-    mysql2 (0.5.3)
     net-scp (2.0.0)
       net-ssh (>= 2.6.5, < 6.0.0)
     net-ssh (5.2.0)
@@ -629,7 +628,6 @@ DEPENDENCIES
   meta-tags
   migration_comments
   mini_magick
-  mysql2
   paranoia
   paranoia_uniqueness_validator
   pry
