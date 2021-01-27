@@ -80,7 +80,6 @@ group :development do
 end
 
 group :development, :test do
-  gem 'sqlite3'
 
   # Email
   gem 'letter_opener_web'
