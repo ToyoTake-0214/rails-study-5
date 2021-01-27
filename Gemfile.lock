@@ -273,7 +273,6 @@ GEM
       actionmailer (>= 3.2)
       letter_opener (~> 1.0)
       railties (>= 3.2)
-    libv8 (3.16.14.19)
     listen (3.2.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
@@ -411,7 +410,6 @@ GEM
       parser (>= 2.5.0.0, < 2.8, != 2.5.1.1)
       psych (~> 3.1.0)
       rainbow (>= 2.0, < 4.0)
-    ref (2.0.0)
     regexp_parser (1.6.0)
     require_all (3.0.0)
     resque (2.0.0)
@@ -538,9 +536,6 @@ GEM
     tapp (1.5.1)
       thor
     temple (0.8.2)
-    therubyracer (0.12.3)
-      libv8 (~> 3.16.14.15)
-      ref
     thor (1.0.1)
     thread_safe (0.3.6)
     tilt (2.0.10)
@@ -661,7 +656,6 @@ DEPENDENCIES
   spring-commands-rspec
   sqlite3
   tapp
-  therubyracer
   timecop
   uglifier
   validate_url
