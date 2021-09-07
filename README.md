@@ -14,7 +14,7 @@
 
 - SQLite3
 - Redis
-- Node.js = 12.14.0
+- Node.js = 12.14.0  
 ※ M1macを使っている方はNode.jsのバージョンは`15.14.0`を使用してください。  
 - Yarn >= 0.20.1
 
