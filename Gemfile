@@ -9,6 +9,7 @@ gem 'bootstrap-sass'
 gem 'font-awesome-rails'
 gem 'jquery-rails'
 gem 'sass-rails'
+gem 'sassc', '2.1.0'
 gem 'uglifier'
 gem 'webpacker'
 
