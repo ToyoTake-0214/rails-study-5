@@ -50,7 +50,7 @@ $ cp .env.default .env
 ### Database creation
 
 ```bash
-$ bundle exec rails db:create db:reset
+$ bundle exec rails db:setup
 ```
 
 ### Database initialization
