@@ -1,21 +1,18 @@
 source 'https://rubygems.org'
-ruby '2.6.5'
+ruby '3.1.2'
 
-gem 'rails', '5.2.3'
-gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'rails', '~> 7.0.3', '>= 7.0.3.1'
 
 # Assets
 gem 'bootstrap-sass'
 gem 'font-awesome-rails'
 gem 'jquery-rails'
 gem 'sass-rails'
-gem 'sassc', '2.1.0'
+gem 'dartsass-rails', '~> 0.4.0'
 gem 'uglifier'
-gem 'webpacker'
 
 # UI/UX
-gem 'rails-i18n', '~> 5.0.0'
-# gem 'turbolinks'
+gem 'rails-i18n'
 gem 'jbuilder'
 gem 'meta-tags'
 gem 'slim-rails'
@@ -29,14 +26,13 @@ gem 'config'
 gem 'dotenv-rails', require: 'dotenv/rails-now'
 
 # Database
-gem 'sqlite3'
+gem 'mysql2'
 gem 'redis-rails'
 
 # Seeds
 gem 'seed-fu'
 
 # Pagination
-gem 'bootstrap4-kaminari-views'
 gem 'kaminari'
 gem 'kaminari-i18n'
 
@@ -96,8 +92,6 @@ group :development, :test do
   # Code analyze
   gem 'brakeman', require: false
   gem 'bullet'
-  gem 'coffeelint'
-  gem 'rails_best_practices'
   gem 'reek'
   gem 'rspec_junit_formatter'
   gem 'rubocop'
@@ -121,7 +115,6 @@ group :development, :test do
 
   # Table/Schema
   gem 'annotate', github: 'ctran/annotate_models', branch: 'develop'
-  gem 'migration_comments'
 
   # Deploy
   gem 'capistrano', '3.9.0'

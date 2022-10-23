@@ -10,86 +10,84 @@
 
 - See `Gemfile`.
 
-## System dependencies
+## プロジェクトのセットアップ手順
 
-- SQLite3
-- Redis
-- Node.js = 15.14.0  
-- Yarn >= 0.20.1
-
-## Project initiation
-
-- Gemのインストール
+### Dockerイメージの構築
 
 ```bash
-$ bundle install --path vendor/bundle
+docker-compose build
 ```
 
-- npmのインストール
+### Dockerコンテナの構築&起動
+
+#### 通常の起動
 
 ```bash
-$ yarn install
+docker-compose up
 ```
 
-### Configuration
-
-*ファイルの中身はご自身の環境に合わせて適宜変更してください*
-
-- データベースの設定
+### Dockerコンテナを終了する
 
 ```bash
-$ cp config/database.yml.default config/database.yml
+docker-compose down
 ```
 
-- 環境変数の設定
+### データベースの作成
 
 ```bash
-$ cp .env.default .env
+cp config/database.yml.default config/database.yml
+docker-compose run web rails db:create
 ```
 
-### Database creation
+### データベースのマイグレーション
 
 ```bash
-$ bundle exec rails db:setup
+docker-compose run web rails db:migrate
 ```
 
-### Database initialization
+### 初期データの入れ込み
 
 ```bash
-$ bundle exec rails db:seed_fu
+docker-compose run web rails db:seed_fu
 ```
 
-## Run rails server
+### jsファイル&sassファイルのビルド&変更反映用
 
 ```bash
-$ bundle exec rails server
+docker-compose run web bin/dev
 ```
 
-## Webpacker
+## Dockerを使う上での注意点
 
-JavaScriptのコンパイル
+### Gemfileを編集したらDockerイメージに変更を反映させる
 
-```
-$ ./bin/webpack
-```
-
-サーバーの起動
-
-```
-$ ./bin/webpack-dev-server
-```
+#### bundle installする
 
 ```bash
-$ spring rspec spec/[対象ファイル]
+docker-compose run web bundle install
 ```
 
-## Development controller
+#### GemfileとGemfile.lockを反映する
 
-### Force login
-
-- See `app/controllers/development/sessions_controller.rb`
-
-```
-/login_as/[user_id]
+```bash
+docker-compose build --force-rm
 ```
 
+### デバッグツールを使うときは
+
+#### railsサーバーを立ち上げているコンテナのIDを確認する
+
+```bash
+docker container ls
+```
+
+#### 該当のコンテナIDをattachする
+
+```bash
+docker attach コンテナID
+```
+
+### ログイン方法
+
+`localhost:3000/login_as/1` にアクセス
+※ 1はユーザーIDなのでDBに入っているユーザーのIDによって異なることがあります。

@@ -6,9 +6,6 @@ Rails.application.configure do
   # since you don't have to restart the web server when you make code changes.
   config.cache_classes = false
 
-  # Session
-  config.session_store :cookie_store, Settings.session_store.to_h
-
   # Do not eager load code on boot.
   config.eager_load = false
 

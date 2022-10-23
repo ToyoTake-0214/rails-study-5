@@ -1,35 +1,32 @@
 {
-  "name": "start-dash",
+  "name": "v3_advanced_rails",
   "version": "1.0.0",
-  "engines" : { "node" : ">=12.14.0" },
+  "engines": {
+    "node": ">=12.14.0"
+  },
   "scripts": {
-    "start": "./bin/webpack-dev-server",
-    "build": "./bin/webpack",
-    "lint": "eslint app/javascript",
-    "test": "echo \"No test specified\" && exit 0"
+    "build": "esbuild app/javascript/*.* --bundle --sourcemap --outdir=app/assets/builds --public-path=assets"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/startup-technology/start-dash.git"
+    "url": "git+https://github.com/runteq/v3_advanced_rails"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/startup-technology/start-dash/issues"
+    "url": "https://github.com/runteq/v3_advanced_rails/issues"
   },
-  "homepage": "https://github.com/startup-technology/start-dash#readme",
+  "homepage": "https://github.com/runteq/v3_advanced_rails#readme",
   "devDependencies": {
     "eslint": "^3.4.0",
     "eslint-config-standard": "^6.0.0",
     "eslint-plugin-promise": "^3.3.0",
     "eslint-plugin-react": "^6.2.0",
     "eslint-plugin-standard": "^2.0.0",
-    "eslint-watch": "^2.1.14",
-    "webpack-dev-server": "^3.10.1"
+    "eslint-watch": "^2.1.14"
   },
   "dependencies": {
     "@babel/preset-react": "^7.8.3",
-    "@rails/webpacker": "4.2.2",
     "autoprefixer": "^7.1.2",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
     "babel-preset-env": "^1.6.0",
