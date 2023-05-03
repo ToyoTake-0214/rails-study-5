@@ -7,9 +7,10 @@ gem 'rails', '~> 7.0.3', '>= 7.0.3.1'
 gem 'bootstrap-sass'
 gem 'font-awesome-rails'
 gem 'jquery-rails'
-gem 'sass-rails'
 gem 'dartsass-rails', '~> 0.4.0'
 gem 'uglifier'
+gem "sprockets-rails"
+gem "jsbundling-rails"
 
 # UI/UX
 gem 'rails-i18n'
