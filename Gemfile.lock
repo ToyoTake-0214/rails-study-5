@@ -628,7 +628,6 @@ DEPENDENCIES
   letter_opener_web
   listen
   meta-tags
-  mini_magick
   mysql2
   paranoia
   paranoia_uniqueness_validator
