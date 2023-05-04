@@ -12,82 +12,75 @@
 
 ## プロジェクトのセットアップ手順
 
-### Dockerイメージの構築
+### Dockerを使った環境準備(イメージのビルド)
 
-```bash
-docker-compose build
+```
+docker compose build
 ```
 
-### Dockerコンテナの構築&起動
+### railsサーバーの起動(バックグラウンドでのコンテナの立ち上げとrailsサーバーの起動)
 
-#### 通常の起動
-
-```bash
-docker-compose up
+```
+docker compose up -d
 ```
 
-### Dockerコンテナを終了する
+### コンテナ内に入る(rails・bundler・yarn関係のコマンドはコンテナ内で実行します)
 
-```bash
-docker-compose down
+```
+docker compose exec web bash
 ```
 
-### データベースの作成
+### Gemのインストール
 
 ```bash
-cp config/database.yml.default config/database.yml
-docker-compose run web rails db:create
+bundle install
 ```
 
-### データベースのマイグレーション
+### node_modulesのインストール
 
 ```bash
-docker-compose run web rails db:migrate
+yarn install
 ```
 
-### 初期データの入れ込み
+### データベースの作成(コンテナ内で実行してください)
 
 ```bash
-docker-compose run web rails db:seed_fu
+bin/rails db:create
 ```
 
-### jsファイル&sassファイルのビルド&変更反映用
+### 初期データの入れ込み(コンテナ内で実行してください)
 
 ```bash
-docker-compose run web bin/dev
+bin/rails db:seed_fu
 ```
 
-## Dockerを使う上での注意点
+### CSS, JS用のサーバー起動(コンテナ内で実行してください・ターミナルで複数のタブを開くとやりやすいでしょう)
 
-### Gemfileを編集したらDockerイメージに変更を反映させる
-
-#### bundle installする
-
-```bash
-docker-compose run web bundle install
+```
+bin/dev
 ```
 
-#### GemfileとGemfile.lockを反映する
+### Dockerコンテナの終了
 
 ```bash
-docker-compose build --force-rm
+docker compose down
 ```
 
 ### デバッグツールを使うときは
 
-#### railsサーバーを立ち上げているコンテナのIDを確認する
+#### railsサーバーを立ち上げているコンテナの名前を確認する
 
 ```bash
-docker container ls
+docker ps
 ```
 
 #### 該当のコンテナIDをattachする
 
 ```bash
-docker attach コンテナID
+docker attach コンテナ名
 ```
 
-### ログイン方法
+### 開発用管理画面ログイン方法(ブラウザで行います)
 
 `localhost:3000/login_as/1` にアクセス
 ※ 1はユーザーIDなのでDBに入っているユーザーのIDによって異なることがあります。
