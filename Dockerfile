@@ -5,7 +5,8 @@ RUN curl -sL https://deb.nodesource.com/setup_18.x | bash - \
   && wget --quiet -O - /tmp/pubkey.gpg https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
   && echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list \
   && apt-get update -qq \
-  && apt-get install -y build-essential libpq-dev libssl-dev nodejs yarn python2 python3
+  && apt-get install -y build-essential libpq-dev libssl-dev nodejs yarn python2 python3 cron
+RUN service cron start
 RUN mkdir /v3_advanced_rails
 WORKDIR /v3_advanced_rails
 RUN gem install bundler:2.3.17
