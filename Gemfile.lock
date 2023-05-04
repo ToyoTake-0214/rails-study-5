@@ -242,6 +242,9 @@ GEM
     hashie (5.0.0)
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)
+    image_processing (1.12.2)
+      mini_magick (>= 4.9.5, < 5)
+      ruby-vips (>= 2.0.17, < 3)
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
@@ -469,6 +472,8 @@ GEM
       rack (>= 1.1)
       rubocop (>= 1.33.0, < 2.0)
     ruby-progressbar (1.11.0)
+    ruby-vips (2.1.4)
+      ffi (~> 1.12)
     ruby2_keywords (0.0.5)
     rubyzip (2.3.2)
     rufus-scheduler (3.8.2)
@@ -614,6 +619,7 @@ DEPENDENCIES
   font-awesome-rails
   fuubar
   gretel
+  image_processing (~> 1.2)
   jbuilder
   jquery-rails
   jsbundling-rails
