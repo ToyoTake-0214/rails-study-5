@@ -10,48 +10,67 @@
 
 - See `Gemfile`.
 
+## Node version
+
+- See `.node-version`
+
 ## プロジェクトのセットアップ手順
+
+### database.yml.defaultのコピー
+
+```bash
+cp config/database.yml.default config/database.yml
+```
+
+### database.yml編集
+
+```yml
+# default: &defaultに以下の記載を追加
+username: root
+password: password
+host: db
+```
 
 ### Dockerを使った環境準備(イメージのビルド)
 
-```
+```bash
 docker compose build
 ```
 
 ### railsサーバーの起動(バックグラウンドでのコンテナの立ち上げとrailsサーバーの起動)
 
-```
+```bash
 docker compose up -d
-```
-
-### コンテナ内に入る(rails・bundler・yarn関係のコマンドはコンテナ内で実行します)
-
-```
-docker compose exec web bash
 ```
 
 ### Gemのインストール
 
 ```bash
-bundle install
+docker compose exec web bundle install
 ```
 
 ### node_modulesのインストール
 
 ```bash
-yarn install
+docker compose exec web yarn install
 ```
 
-### データベースの作成(コンテナ内で実行してください)
+### データベースの作成
 
 ```bash
-bin/rails db:create
+docker compose exec web rails db:create
 ```
 
-### 初期データの入れ込み(コンテナ内で実行してください)
+### マイグレーションファイルの適応
 
 ```bash
-bin/rails db:seed_fu
+docker compose exec web rails db:migrate
+```
+
+### 初期データの入れ込み
+
+```bash
+docker compose exec web rails db:seed_fu
 ```
 
 ### CSS, JS用のサーバー起動(コンテナ内で実行してください・ターミナルで複数のタブを開くとやりやすいでしょう)
