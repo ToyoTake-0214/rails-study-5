@@ -40,7 +40,8 @@ docker compose build
 ### railsサーバーの起動(バックグラウンドでのコンテナの立ち上げとrailsサーバーの起動)
 
 ```bash
-docker compose up -d
+docker compose up
+*docker compose upを実行しているターミナルとは別に新しくターミナルを立ち上げてください。新しいターミナルにて以下のコマンドを実行してください。
 ```
 
 ### Gemのインストール
