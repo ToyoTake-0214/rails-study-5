@@ -41,8 +41,9 @@ docker compose build
 
 ```bash
 docker compose up
-*docker compose upを実行しているターミナルとは別に新しくターミナルを立ち上げてください。新しいターミナルにて以下のコマンドを実行してください。
 ```
+
+*docker compose upを実行しているターミナルとは別に新しくターミナルを立ち上げてください。新しいターミナルにて以下のコマンドを実行してください。
 
 ### Gemのインストール
 
