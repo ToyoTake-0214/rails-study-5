@@ -22,15 +22,6 @@
 cp config/database.yml.default config/database.yml
 ```
 
-### database.yml編集
-
-```yml
-# default: &defaultに以下の記載を追加
-username: root
-password: password
-host: db
-```
-
 ### Dockerを使った環境準備(イメージのビルド)
 
 ```bash
