@@ -1,6 +1,6 @@
 module ArticleDecorator
   def eye_catch_url(version = :origin)
-    if !eye_catch.attached? || eye_catch.metadata.blank?
+    if !eye_catch.attached? || !eye_catch.blob.persisted?
       return '/images/eye_catch.jpg'
     end
 
