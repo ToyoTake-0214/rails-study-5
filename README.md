@@ -69,7 +69,7 @@ docker compose exec web rails db:seed_fu
 ### CSS, JS用のサーバー起動(コンテナ内で実行してください・ターミナルで複数のタブを開くとやりやすいでしょう)
 
 ```
-bin/dev
+docker compose exec web bin/dev
 ```
 
 ### Dockerコンテナの終了
