@@ -128,10 +128,10 @@ group :development, :test do
 end
 
 group :test do
-  gem 'capybara'
   gem 'faker'
   gem 'fuubar'
   gem 'shoulda-matchers'
   gem 'timecop'
-  gem 'webdrivers'
+  gem "capybara", "~> 3.40"
+  gem "selenium-webdriver", "~> 4.16"
 end
