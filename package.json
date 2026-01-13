@@ -41,7 +41,6 @@
     "file-loader": "^0.11.2",
     "glob": "^7.1.2",
     "js-yaml": "^3.9.1",
-    "node-sass": "^8.0",
     "path-complete-extname": "^0.1.0",
     "postcss-loader": "^2.0.6",
     "postcss-smart-import": "^0.7.5",
@@ -50,6 +49,7 @@
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-rte": "^0.16.0",
+    "sass": "^1.54.0",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.18.2"
   }
