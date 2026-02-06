@@ -62,7 +62,11 @@ docker compose exec web rails db:seed_fu
 
 ### CSS, JS用のサーバー起動(コンテナ内で実行してください・ターミナルで複数のタブを開くとやりやすいでしょう)
 
-```
+
+```bash
+# 初回クローン時のみ実行（permission deniedが出る場合）
+chmod +x bin/*
+
 docker compose exec web bin/dev
 ```
 
