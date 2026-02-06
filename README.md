@@ -16,12 +16,6 @@
 
 ## プロジェクトのセットアップ手順
 
-### database.yml.defaultのコピー
-
-```bash
-cp config/database.yml.default config/database.yml
-```
-
 ### Dockerを使った環境準備(イメージのビルド)
 
 ```bash
