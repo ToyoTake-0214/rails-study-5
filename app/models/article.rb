@@ -70,7 +70,9 @@ class Article < ApplicationRecord
     article_blocks.each do |article_block|
       result << if article_block.sentence?
                   sentence = article_block.blockable
-                  sentence.body
+                  Rails.logger.info "sentence: #{sentence.inspect}"
+                  Rails.logger.info "sentence.body: #{sentence.body.inspect}"
+                  sentence.body || ""
                 elsif article_block.medium?
                   medium = ActiveDecorator::Decorator.instance.decorate(article_block.blockable)
                   controller.render_to_string("shared/_media_#{medium.media_type}", locals: { medium: medium }, layout: false)
