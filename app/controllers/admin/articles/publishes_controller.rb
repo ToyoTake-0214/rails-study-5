@@ -9,7 +9,7 @@ class Admin::Articles::PublishesController < ApplicationController
     if @article.published_at <= Time.current
       @article.state = :published
     else
-      @article.state = :pending
+      @article.state = :publish_wait
     end
 
     if @article.valid?
