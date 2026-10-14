@@ -23,6 +23,7 @@ class Admin::Articles::PublishesController < ApplicationController
 
       @article.state = @article.state_was if @article.state_changed?
       render 'admin/articles/edit'
+      return
     end
 
     if @article.published?
