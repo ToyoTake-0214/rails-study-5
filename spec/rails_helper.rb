@@ -61,17 +61,9 @@ RSpec.configure do |config|
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
 
-  if ENV['CODEBUILD_BUILD_ID']
-    config.before(:each, type: :system) do
-      driven_by :ci_headless_chrome
-    end
-  else
-    config.before(:each, type: :system) do
-      driven_by :remote_chrome
-      Capybara.server_host = IPSocket.getaddress(Socket.gethostname)
-      Capybara.server_port = 4444
-      Capybara.app_host = "http://#{Capybara.server_host}:#{Capybara.server_port}"
-      Capybara.ignore_hidden_elements = false
-    end
-  end
+  # FactoryBotの省略
+  config.include FactoryBot::Syntax::Methods
+
+  # spec/support/ 配下のモジュールを読み込む
+  config.include LoginMacros
 end
