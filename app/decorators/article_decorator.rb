@@ -17,4 +17,10 @@ module ArticleDecorator
 
     command ? eye_catch.variant(command).processed : eye_catch
   end
+
+  def eye_catch_display_url
+  return eye_catch.variant(resize_to_limit: [eyecatch_width, nil]).processed if eyecatch_width.present?
+
+  eye_catch_url(:lg)
+  end
 end
